@@ -1,5 +1,5 @@
 @extends('layouts.backend.app')
-@section('title', 'dashbord')
+@section('title', 'student details')
 @push('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"
         integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog=="
@@ -31,6 +31,11 @@
                         <thead>
                             <tr>
                                 <th class="text-center" colspan="4">Student Details</th>
+
+                            </tr>
+                            <tr>
+                                <th class="text-center" colspan="4"><img  style="width: 80px;" src="{{ asset('images/profile/' .  profile_pic_check($student->profile_pic))}}" alt="avatar"></th>
+
                             </tr>
                         </thead>
                         <tbody>

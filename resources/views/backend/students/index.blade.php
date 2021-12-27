@@ -1,5 +1,5 @@
 @extends('layouts.backend.app')
-@section('title', 'dashbord')
+@section('title', 'student list')
     @push('css')
     @endpush
 @section('content')
@@ -12,12 +12,12 @@
             <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
                 <thead>
                     <tr>
-                        <th class="text-center">No</th>
-                        <th>Student id</th>
-                        <th>Student name</th>
-                        <th>Student Email</th>
+                        <th class="text-center">Sl</th>
+                        <th class=" text-center">Student profile</th>
+                        <th class=" text-center">Student name</th>
+                        <th class=" text-center">Student Email</th>
 
-                        <th>Created At</th>
+                        <th class=" text-center">Created At</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -25,14 +25,14 @@
                     @foreach ($students as $key => $item)
                         <tr>
                             <td class="text-center">{{ $key + 1 }}</td>
-                            <td>{{ $item->id }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{$item->email}}</td>
-                             <td>{{$item->created_at}}</td>
+                            <td class=" text-center"> <img  style="width: 60px;" src="{{ asset('images/profile/' .  profile_pic_check($item->profile_pic))}}" alt="avatar"></td>
+
+                            <td class=" text-center">{{ $item->name }}</td>
+                            <td class=" text-center">{{$item->email}}</td>
+                             <td class=" text-center">{{$item->created_at}}</td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    {{-- <a href="{{ route('admin.news.edit', $item->id) }}" data-toggle="tooltip"
-                                        title="Edit" class="btn btn-xs btn-default"><i class="fa fa-pencil"></i></a> --}}
+
                                 <a href="{{ route('backend.students.show', $item->id) }}" data-toggle="tooltip"
                                         title="show" class="btn btn-xs btn-primary"><i class="fa fa-eye"></i></a>
                                     <a href="javascript:void(0)" onclick='deleteData({{ $item->id }})'
